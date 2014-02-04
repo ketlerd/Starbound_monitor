@@ -19,8 +19,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-$log = "/starbound/server/starbound_server.log";
-$config = "/starbound/server/linux32/starbound.config";
+$log = "/home/starbound/server/starbound_server.log";
+$config = "/home/starbound/server/linux32/starbound.config";
 $array[] = "";
 $users = array();
 $messages = array();
@@ -57,8 +57,8 @@ foreach($users as $u => $status) {
     if($status == 1)
         $count++;
 }
-echo "<table class='table table-bordered'><thead><tr><td>Current Players: ";
-echo $count . "/" . $settings->{"maxPlayers"} ."</td></tr></thead>";
+echo "<table class='table table-bordered'><thead><tr><th>Current Players: ";
+echo $count . "/" . $settings->{"maxPlayers"} ."</th></tr></thead>";
 echo "<tbody>";
 foreach($users as $u => $status) {
     if($status == 1)
@@ -68,11 +68,12 @@ echo "<tr><td>&nbsp;</td></tr>";
 echo "</tbody></table>";
 //print_r($users);
 
-echo " <table class='table table-bordered'><thead><tr><td>Recent Messages</td></tr></thead>";
-echo "<tbody>";
+echo " <table class='table table-bordered'><thead><tr><th>Recent Messages</th></tr></thead>";
+echo "<tbody style='height:300px; overflow-y: scroll; overflow-x: hidden;'>";
 foreach($messages as $msg) {
     echo "<tr><td><code>" . htmlentities($msg) ."</code></td></tr>";
 }
 echo "<tr><td>&nbsp;</td></tr>";
 echo "</tbody></table>";
 ?>
+
